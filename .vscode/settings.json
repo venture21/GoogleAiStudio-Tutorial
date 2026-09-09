@@ -1,0 +1,13 @@
+{
+  // 1. 사용할 아나콘다 가상환경의 파이썬 인터프리터 경로
+  "python.defaultInterpreterPath": "/opt/miniconda3/envs/myenv/bin/python",
+
+  // 2. 터미널 생성 시 선택된 가상환경으로 자동 활성화 (base -> myenv 자동 전환)
+  "python.terminal.activateEnvironment": true,
+  "python.terminal.activateEnvInCurrentTerminal": true,
+
+  // 3. 무음 환경변수 주입 대신 터미널에 명시적으로 conda activate 명령을 실행하도록 강제
+  "python.experiments.optOutFrom": [
+    "pythonTerminalEnvVarActivation"
+  ]
+}
