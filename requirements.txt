@@ -1,0 +1,13 @@
+# Google GenAI 공식 SDK (TTS, STT 공통)
+google-genai>=2.14.0
+
+# 유튜브 오디오 다운로더
+yt-dlp>=2024.0.0
+
+# 웹 서비스 백엔드 프레임워크 및 서버
+fastapi>=0.115.0
+uvicorn>=0.30.0
+python-multipart>=0.0.9
+
+# 환경 변수 관리 (.env 지원)
+python-dotenv>=1.0.0
