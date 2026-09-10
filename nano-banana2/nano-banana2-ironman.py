@@ -1,0 +1,36 @@
+import base64
+import os
+from google import genai
+from IPython.display import Image, display
+
+client = genai.Client(
+    api_key=os.environ.get("GEMINI_API_KEY"),
+)
+
+tools = [
+    {
+        'type': 'google_search',
+    },
+]
+
+generation_config = {
+    'temperature': 1,
+    'max_output_tokens': 65536,
+    'top_p': 0.95,
+    'thinking_level': 'high',
+    'image_config': {
+        'image_size': '2K',
+    },
+}
+
+interaction = client.interactions.create(
+    model='models/gemini-3.1-flash-image',
+    input="""INSERT_INPUT_HERE""",
+    tools=tools,
+    generation_config=generation_config,
+    response_modalities=['image'],
+)
+
+print(interaction.steps[-1])
+
+
