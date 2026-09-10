@@ -27,6 +27,7 @@ app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 class ProcessRequest(BaseModel):
     url: str
+    prompt: str | None = None
     word_timestamp: bool = True
     diarization: bool = True
 
@@ -64,6 +65,7 @@ async def process_youtube(req: ProcessRequest):
         transcript_result = transcribe_audio(
             filepath=audio_info["filepath"],
             mime_type=audio_info["mime_type"],
+            prompt=req.prompt,
             word_timestamp=req.word_timestamp,
             diarization=req.diarization,
         )

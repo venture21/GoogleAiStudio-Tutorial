@@ -19,6 +19,7 @@ def get_genai_client() -> genai.Client:
 def transcribe_audio(
     filepath: str,
     mime_type: str = "audio/mp4",
+    prompt: str | None = None,
     word_timestamp: bool = True,
     diarization: bool = True,
 ) -> dict:
@@ -60,10 +61,15 @@ def transcribe_audio(
         content_part = types.Part.from_uri(file_uri=uploaded_file.uri, mime_type=mime_type)
 
     model = "gemini-3.5-transcribe"
+    parts = [content_part]
+    if prompt and prompt.strip():
+        print(f"Applying custom prompt: {prompt.strip()}")
+        parts.append(types.Part.from_text(text=prompt.strip()))
+
     contents = [
         types.Content(
             role="user",
-            parts=[content_part],
+            parts=parts,
         )
     ]
 
