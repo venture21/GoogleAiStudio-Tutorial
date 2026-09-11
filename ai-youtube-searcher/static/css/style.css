@@ -1,0 +1,23 @@
+/* Custom Scrollbar for YouTube theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #383838;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #505050;
+}
+
+/* Smooth range input */
+input[type="range"] {
+  accent-color: #ff0000;
+}
